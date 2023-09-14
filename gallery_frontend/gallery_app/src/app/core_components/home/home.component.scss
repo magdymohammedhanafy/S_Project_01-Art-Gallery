@@ -1,0 +1,66 @@
+.special-heading {
+  color: #ebeced;
+  font-size: 100px;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .special-heading {
+    font-size: 50px;
+    font-weight: 800;
+  }
+  .special-heading + p {
+    margin: -15px 0 0;
+  }
+}
+
+//start intri section
+
+.intro_section {
+  text-align: center;
+  padding: 20px;
+}
+
+.intro_section h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+.intro_section img {
+  width: 1000px;
+  height: 500px;
+}
+
+//end intro section
+
+//start services section
+.services_section {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 40px;
+}
+
+//end services section
+
+//start category section
+.categories_section {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 40px;
+}
+//end category section
+
+//start product section
+.products_section {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+//end product section

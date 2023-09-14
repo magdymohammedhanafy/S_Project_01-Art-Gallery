@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Stock</th>
+      <th>Price</th>
+      <th>Product Details</th>
+      <th>Add To CART</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prd of prdList; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ prd.name }}</td>
+      <td>
+        <img
+          style="height: 150px; width: 200px"
+          [src]="prd.image"
+          alt="image"
+        />
+      </td>
+      <td>{{ prd.stock }}</td>
+      <td>{{ prd.price }}</td>
+      <td><button type="button" class="btn btn-secondary">details</button></td>
+      <td>
+        <button type="button" class="btn btn-secondary">Add To Cart</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

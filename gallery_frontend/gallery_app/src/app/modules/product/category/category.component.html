@@ -1,0 +1,11 @@
+<select
+  class="form-select"
+  aria-label="Default select example"
+  [(ngModel)]="selectedCategoryId"
+>
+  <option selected value="0">All Categories</option>
+  <option *ngFor="let categ of categList" [value]="categ.id">
+    {{ categ.name }}
+  </option>
+</select>
+<app-product-list [sentCategoryID]="selectedCategoryId"></app-product-list>
