@@ -46,6 +46,7 @@ use Illuminate\Support\Facades\Route;
                function () {
                 Route::get('/', 'CategoryController@index');
                 Route::get('/{id}', 'CategoryController@findById');
+                Route::get('/products/{id}', 'CategoryController@show');
                 Route::post('/', 'CategoryController@create')->middleware(['auth:sanctum','admin']);
                 Route::put('/', 'CategoryController@update')->middleware(['auth:sanctum','admin']);
                 Route::delete('/{id}', 'CategoryController@delete')->middleware(['auth:sanctum','admin']);
@@ -60,6 +61,7 @@ use Illuminate\Support\Facades\Route;
                 function () {
                     Route::get('/', 'ProductController@index');
                     Route::get('/{id}', 'ProductController@findById');
+                   // Route::get('/', 'ProductController@findByCategoryId');
                     Route::post('/', 'ProductController@create')->middleware(['auth:sanctum','admin']);
                     Route::put('/{id}', 'ProductController@update')->middleware(['auth:sanctum','admin']);
                     Route::delete('/{id}', 'ProductController@delete')->middleware(['auth:sanctum','admin']);
@@ -75,7 +77,7 @@ use Illuminate\Support\Facades\Route;
                     Route::get('/', 'CartController@index')->middleware(['auth:sanctum','admin']);
                     Route::post('/add-item', 'CartController@addItem')->middleware(['auth:sanctum']);
                     Route::get('/{id}', 'CartController@show')->middleware(['auth:sanctum']);
-                    Route::delete('/remove-item', 'CartController@removeItem')->middleware(['auth:sanctum']);
+                    Route::post('/remove-item', 'CartController@removeItem')->middleware(['auth:sanctum']);
                 }
             );
 

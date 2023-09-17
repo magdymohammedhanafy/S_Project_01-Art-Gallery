@@ -1,58 +1,73 @@
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"
-      ><img
-        src="./assets/logo.jpg"
-        alt="logo"
-        style="width: 50px; height: auto"
-    /></a>
+    <!-- Toggle button -->
     <button
       class="navbar-toggler"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
+      <i class="fas fa-bars"></i>
     </button>
+
+    <!-- Collapsible wrapper -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="./assets/logo2.jpg"
+          height="30"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          <a class="nav-link" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/products/products_list">Products</a>
         </li>
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="navbarDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth/login" [hidden]="loginStatus"
+            >Login</a
           >
-            Categories
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/auth/login"
+            (click)="logOut()"
+            [hidden]="!loginStatus"
+          >
+            Logout
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li *ngFor="let categ of categList">
-              <button class="dropdown-item" href="#">{{ categ.name }}</button>
-            </li>
-          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/auth/register">Signup</a>
         </li>
       </ul>
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <a type="button" class="text-reset me-3" (click)="checkLoginStatus()">
+        <fa-icon [icon]="icon"></fa-icon>
+      </a>
     </div>
+    <!-- Right elements -->
   </div>
-  <fa-icon [icon]="icon"></fa-icon>
+  <!-- Container wrapper -->
 </nav>
+<!-- Navbar -->

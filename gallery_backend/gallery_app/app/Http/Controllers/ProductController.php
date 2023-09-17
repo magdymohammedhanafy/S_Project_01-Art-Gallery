@@ -26,6 +26,21 @@ class ProductController extends Controller
         ]);
     }
 
+    public function  findByCategoryId()
+    {
+        if (request()->has('category_id') && !empty(request()->category_id)) {
+            $products->where('category_id', 'like', '%' . request()->category_id . '%');
+        }
+        return ProductResource::collection($product);
+       /* $product = Product::findOrFail($category_id);
+
+        return response()->json([
+            'data' =>$product ,
+        ]);*/
+    }
+
+
+
 
      public function create(CreateProductRequest $request)
      {

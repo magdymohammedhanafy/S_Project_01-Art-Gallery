@@ -29,6 +29,16 @@ class CategoryController extends Controller
         ]);
     }
 
+    public function show($id)
+    {
+        $category = Category::with([
+            'products',
+        ])->findOrFail($id);
+
+        return new CategoryResource($category);
+    }
+
+
 
      public function create(CreateCategoryRequest $request)
      {

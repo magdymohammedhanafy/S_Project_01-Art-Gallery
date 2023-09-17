@@ -23,9 +23,23 @@
       </td>
       <td>{{ prd.stock }}</td>
       <td>{{ prd.price }}</td>
-      <td><button type="button" class="btn btn-secondary">details</button></td>
       <td>
-        <button type="button" class="btn btn-secondary">Add To Cart</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="navigateToPrdDetails(prd.id)"
+        >
+          details
+        </button>
+      </td>
+      <td>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          (click)="addItemToCart(prd.id)"
+        >
+          Add To Cart
+        </button>
       </td>
     </tr>
   </tbody>

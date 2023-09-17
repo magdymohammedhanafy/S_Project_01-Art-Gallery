@@ -4,6 +4,7 @@ import { ProductDetailsComponent } from './modules/product/product-details/produ
 import { HeaderComponent } from './core_components/header/header.component';
 import { FooterComponent } from './core_components/footer/footer.component';
 import { HomeComponent } from './core_components/home/home.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import('./modules/auth/auth.module').then((m) => m.AuthModule),
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./modules/cart/cart.module').then((m) => m.CartModule),
   },
 ];
 

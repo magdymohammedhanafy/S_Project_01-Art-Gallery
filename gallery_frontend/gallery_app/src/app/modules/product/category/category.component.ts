@@ -8,9 +8,11 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent {
-  categList: ICategory[];
+  categList: ICategory[] = [];
   selectedCategoryId: number = 0;
   constructor(private CategoryService: CategoryService) {
-    this.categList = CategoryService.getAllCategories();
+    this.CategoryService.getAllCategories().subscribe((categories) => {
+      this.categList = categories.data;
+    });
   }
 }

@@ -42,7 +42,11 @@ class LoginRequest extends FormRequest
 
 
             return   [
-                'token' => auth()->user()->createToken('auth_token')->plainTextToken,
+
+                'user_data'=> auth()->user(),
+                'token' => auth()->user()->createToken('auth_token')->plainTextToken
+
+
             ];
 
 
