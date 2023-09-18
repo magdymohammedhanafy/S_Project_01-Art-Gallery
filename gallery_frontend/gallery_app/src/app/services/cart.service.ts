@@ -46,7 +46,15 @@ export class CartService {
 
   getCartById(cartId: number): Observable<any> {
     return this.httpClient
-      .get<any>(`http://127.0.0.1:8000/api/carts/${cartId}`, this.httpOption)
+      .get<any>(
+        `http://127.0.0.1:8000/api/carts/${cartId}`,
+        (this.httpOption = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          }),
+        })
+      )
       .pipe(catchError(this.handleError));
   }
 

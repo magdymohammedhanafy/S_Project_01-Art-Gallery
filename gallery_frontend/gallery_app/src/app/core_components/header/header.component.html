@@ -5,18 +5,23 @@
     <!-- Toggle button -->
     <button
       class="navbar-toggler"
-      type="button"
+      type="submit"
       data-mdb-toggle="collapse"
       data-mdb-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent"
-      aria-expanded="false"
+      aria-expanded="true"
       aria-label="Toggle navigation"
+      (click)="showNaveList()"
     >
       <i class="fas fa-bars"></i>
     </button>
 
     <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div
+      class="navbar-collapse"
+      [ngClass]="{ collapse: !isEnabled }"
+      id="navbarSupportedContent"
+    >
       <!-- Navbar brand -->
       <a class="navbar-brand mt-2 mt-lg-0" href="#">
         <img
@@ -61,10 +66,12 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/auth/register">Signup</a>
         </li>
+        <li class="nav-item">
+          <a type="button" class="nav-link" (click)="checkLoginStatus()">
+            <fa-icon [icon]="icon"></fa-icon>
+          </a>
+        </li>
       </ul>
-      <a type="button" class="text-reset me-3" (click)="checkLoginStatus()">
-        <fa-icon [icon]="icon"></fa-icon>
-      </a>
     </div>
     <!-- Right elements -->
   </div>

@@ -1,4 +1,10 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectorRef,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { ICategory } from 'src/app/Models/i-category';
@@ -11,6 +17,8 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
+  isEnabled: boolean = false;
+
   icon = faCartShopping;
   loginStatus: boolean = false;
   categList: ICategory[] = [];
@@ -41,5 +49,11 @@ export class HeaderComponent implements OnInit {
     } else {
       this.router.navigate(['/cart']);
     }
+  }
+
+  showNaveList() {
+    console.log('show');
+
+    this.isEnabled = !this.isEnabled;
   }
 }

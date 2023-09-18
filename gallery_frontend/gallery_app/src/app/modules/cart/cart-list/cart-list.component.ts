@@ -24,10 +24,9 @@ export class CartListComponent {
       cart_id: this.cart_id,
       product_id: itemId,
     };
+    alert('are you sure to delete this item from cart');
     this.CartService.deleteItemFromCart(this.data).subscribe((data) => {
       console.log(data);
-
-      alert('are you sure to delete this item from cart');
       window.location.reload();
     });
   }
